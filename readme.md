@@ -1,16 +1,13 @@
 Nous considérons que nous avons 5 serveurs:
 
 
-## Tester
-Pour tester, nous pouvons utiliser docker
+## Tester sur linux
+Pour tester, nous pouvons utiliser Docker.
 
-FROM nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+Suivre le tuto sur: [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/install/ubuntu/)
 
-docker build -t my-nginx .
+### Build l'image docker:
 
-docker run -d -p 8080:80 my-nginx
-docker run -d -p 8081:80 my-nginx
-docker run -d -p 8082:80 my-nginx
-docker run -d -p 8083:80 my-nginx
-docker run -d -p 8084:80 my-nginx
+docker build -t {nom de l'image quon veut créer} .
+Le point signifie où on peut trouver l'image
+
