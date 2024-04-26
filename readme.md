@@ -15,3 +15,15 @@ Le point signifie où on peut trouver l'image
 curl http://192.168.1.100:8080
 ou 
 curl http://localhost
+
+
+
+### Taches
+- LEMP
+
+
+- Une base de données
+- Host un site avec mkdocs
+- Configurer les serveurs 
+- Configurer le load balancer (contient le WAF)
+- Avancer sur le latex
