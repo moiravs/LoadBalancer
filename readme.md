@@ -31,6 +31,7 @@ Nous considérons que nous avons 5 serveurs:
 
 - Lancer le service php-fpm  `sudo service php8.1-fpm restart`
 - Lancer nginx: `sudo service nginx restart`
+
 # Lancer la database
 
 - `sudo apt-get install php-mysql`
@@ -65,7 +66,6 @@ curl http://localhost
 
 
 - Une base de données
-- Host un site avec mkdocs
 - Configurer les serveurs 
 - Configurer le load balancer (contient le WAF)
 - Avancer sur le latex
