@@ -1,5 +1,11 @@
 Nous considérons que nous avons 5 serveurs:
 
+## Lancer le site web
+- Installer node.js
+- `npm install http-server -g`
+- `http-server` -> il affiche le lien lors du résultat de la commande
+
+
 
 ## Tester sur linux
 Pour tester, nous pouvons utiliser Docker.
