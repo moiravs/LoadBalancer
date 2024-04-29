@@ -10,7 +10,7 @@ echo "My first PHP script!";
 
     <?php
 $servername = "localhost";
-$username = "username";
+$username = "root";
 $password = "password";
 
 try {

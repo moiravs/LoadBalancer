@@ -31,6 +31,17 @@ Nous considérons que nous avons 5 serveurs:
 
 - Lancer le service php-fpm  `sudo service php8.1-fpm restart`
 - Lancer nginx: `sudo service nginx restart`
+# Lancer la database
+
+- `sudo apt-get install php-mysql`
+- `sudo apt-get install mysql-server`
+- `sudo service mysql start`
+
+- sudo mysql -u root
+- `sudo mysql -u root
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+exit;`
 
 ## Tester sur linux
 Pour tester, nous pouvons utiliser Docker.
