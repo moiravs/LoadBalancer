@@ -1,6 +1,5 @@
-Nous considérons que nous avons 5 serveurs:
 
-## Lancer le site web
+# Scénario 1: Lancer le site web (sans docker)
 - Installer php-fpm
 - Installer nginx
 - Installer php
@@ -32,7 +31,7 @@ Nous considérons que nous avons 5 serveurs:
 - Lancer le service php-fpm  `sudo service php8.1-fpm restart`
 - Lancer nginx: `sudo service nginx restart`
 
-# Lancer la database
+### Lancer la database
 
 - `sudo apt-get install php-mysql`
 - `sudo apt-get install mysql-server`
@@ -44,14 +43,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 FLUSH PRIVILEGES;
 exit;`
 
-# Lancer le site web avec docker:
+# Scénario 2: Lancer le site web avec docker:
 - `docker-compose up`
 - aller voir sur http://localhost:8080
 
-## Envoyer des requêtes au container docker contenant le load balancer
-curl http://192.168.1.100:8080
-ou 
-curl http://localhost
+
+
 
 
 

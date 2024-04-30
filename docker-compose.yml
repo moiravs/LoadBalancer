@@ -27,6 +27,21 @@ services:
         stdin_open: true
         tty: true
 
+    web2:
+        image: nginx:latest
+        ports:
+            - "8081:80"
+        volumes:
+            - ./src:/var/www/html
+            - ./default.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php-fpm
+
+        depends_on:
+             - db    
+        stdin_open: true
+        tty: true
+
     php-fpm:
         build: docker/php-fpm
         volumes:
