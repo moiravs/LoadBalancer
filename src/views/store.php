@@ -11,7 +11,9 @@ try {
   $conn = new PDO("mysql:host=$servername", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = file_get_contents(__DIR__ . "/database/init.sql");
+  $initSqlRelativePath = dirname(__DIR__) . '/database/init.sql';
+  $sql = file_get_contents($initSqlRelativePath);
+
   // use exec() because no results are returned
   $conn->exec($sql);
   echo "Database created successfully<br>";
