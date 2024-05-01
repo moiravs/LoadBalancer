@@ -1,4 +1,4 @@
 <?php
-echo "Welcome page";
+echo "Welcome page to server 1";
 
 ?>
