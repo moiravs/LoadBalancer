@@ -44,7 +44,9 @@ FLUSH PRIVILEGES;
 exit;`
 
 # Scénario 2: Lancer le site web avec docker:
-- `docker-compose up`
+- `sudo service docker start`
+- `sudo apt install docker-compose`
+- `sudo docker-compose up --build` (pour compiler, pas nécéssaire de le faire à chaque fois)
 - aller voir sur http://localhost:8080
 
 

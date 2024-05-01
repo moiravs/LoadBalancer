@@ -1,39 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-
-    <?php
-echo "My first PHP script!";
+<?php
+echo "Welcome page";
 ?>
 
-
-    <?php
+<?php
 $servername = "db";
 $username = "root";
 $password = "password";
-
-
-$request = $_SERVER['REQUEST_URI'];
-
-switch ($request) {
-    case '/' :
-        require __DIR__ . '/php/welcome.php';
-        break;
-    case '' :
-        require __DIR__ . '/php/welcome.php';
-        break;
-    case '/account' :
-        require __DIR__ . '/php/account.php';
-        break;
-    case '/store' :
-        require __DIR__ . '/php/store.php';
-        break;
-    default:
-        http_response_code(404);
-        require __DIR__ . '/views/404.php';
-        break;
-}
 
 try {
   $conn = new PDO("mysql:host=$servername", $username, $password);
@@ -56,7 +28,3 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 $conn = null;
 ?>
-
-</body>
-
-</html>
