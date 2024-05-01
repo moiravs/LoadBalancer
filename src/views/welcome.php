@@ -1,4 +1,4 @@
 <?php
-echo "Welcome page to server 1";
-
+echo "Welcome page to server";
+echo 'Server: ' . gethostname();
 ?>

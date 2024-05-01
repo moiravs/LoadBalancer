@@ -32,6 +32,7 @@ services:
     web:
         image: nginx:latest
         container_name: web
+        hostname: web1
         ports:
             - "8080:80"
         volumes:
@@ -51,10 +52,11 @@ services:
     web2:
         image: nginx:latest
         container_name: web2
+        hostname: web2
         ports:
             - "8081:80"
         volumes:
-            - ./src2:/var/www/html
+            - ./src:/var/www/html
             - ./default2.conf:/etc/nginx/conf.d/default.conf
         links:
             - php-fpm2
@@ -73,19 +75,30 @@ services:
             dockerfile: Dockerfile1
         volumes:
             - ./src:/var/www/html
+        container_name: php-fpm1
+        hostname: php-fpm1
 
         networks:
           - local
+
+        environment:
+            - HOSTNAME=web1
 
     php-fpm2:
         build: 
             context: docker/php-fpm
             dockerfile: Dockerfile2
         volumes:
-            - ./src2:/var/www/html
+            - ./src:/var/www/html
+
+        container_name: php-fpm2
+        hostname: php-fpm2
 
         networks:
           - local
+
+        environment:
+            - HOSTNAME=web2
 
 
 
