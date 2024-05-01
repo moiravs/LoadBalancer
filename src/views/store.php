@@ -1,5 +1,6 @@
 <?php
 echo "Store Page";
+echo 'Server: ' . gethostname();
 ?>
 
 <?php
