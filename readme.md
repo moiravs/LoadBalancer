@@ -47,7 +47,8 @@ exit;`
 - `sudo service docker start`
 - `sudo apt install docker-compose`
 - `sudo docker-compose up --build` (pour compiler, pas nécéssaire de le faire à chaque fois)
-- aller voir sur http://localhost:8080
+- aller voir sur https://localhost:8080 (pour web1) ou https://localhost:8081 (pour web2)
+- aller voir sur https://localhost:8082 (pour le load balancer)
 
 
 
