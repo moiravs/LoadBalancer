@@ -20,9 +20,11 @@ services:
         image: nginx:latest
         container_name: loadbalancer
         ports:
-            - "8082:80"
+            - "8082:443"
         volumes:
             - ./defaultlb.conf:/etc/nginx/conf.d/default.conf
+            - ./crt:/etc/nginx/ssl/crt
+            - ./key:/etc/nginx/ssl/key
         links:
             - web
             - web2
@@ -34,10 +36,12 @@ services:
         container_name: web
         hostname: web1
         ports:
-            - "8080:80"
+            - "8080:443"
         volumes:
             - ./src:/var/www/html
             - ./default.conf:/etc/nginx/conf.d/default.conf
+            - ./crt:/etc/nginx/ssl/crt
+            - ./key:/etc/nginx/ssl/key
         links:
             - php-fpm
 
@@ -54,10 +58,12 @@ services:
         container_name: web2
         hostname: web2
         ports:
-            - "8081:80"
+            - "8081:443"
         volumes:
             - ./src:/var/www/html
             - ./default2.conf:/etc/nginx/conf.d/default.conf
+            - ./crt:/etc/nginx/ssl/crt
+            - ./key:/etc/nginx/ssl/key
         links:
             - php-fpm2
 
