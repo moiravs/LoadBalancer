@@ -1,7 +1,11 @@
 <?php
+require_once __DIR__ . '/database/database.php';
 
 $request = $_SERVER['REQUEST_URI'];
 $viewDir = '/views/';
+
+$db = Database::getInstance();
+$conn = $db->getConnection();
 
 switch ($request) {
     case '':
