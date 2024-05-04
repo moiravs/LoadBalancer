@@ -15,3 +15,4 @@
 - Configurer les serveurs 
 - Configurer le load balancer (contient le WAF)
 - Avancer sur le latex
+- Utiliser un .sh pour rajouter des serveurs et le configurer
