@@ -6,4 +6,3 @@ CREATE TABLE IF NOT EXISTS test_table (
     name VARCHAR(255) NOT NULL
 );
 
-INSERT INTO test_table (name) VALUES ('John Doe');

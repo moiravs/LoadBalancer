@@ -1,12 +1,13 @@
 <?php
 echo "Store Page";
 echo 'Server: ' . gethostname();
-?>
 
-<?php
 $servername = "db";
 $username = "root";
 $password = "password";
+
+class MyDB 
+
 
 try {
   $conn = new PDO("mysql:host=$servername", $username, $password);
@@ -22,12 +23,35 @@ try {
   echo $sql . "<br>" . $e->getMessage();
 }
 
-$sql = "SELECT * FROM test_table";
-$stmt = $conn->query($sql);
 
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+if(array_key_exists('button1', $_POST)) { 
+    button1(); 
+} 
+
+function button1() { 
+    echo "This is Button1 that is selected"; 
+    $sql = "INSERT INTO test_table (name) VALUES ('John Poe');";
+    $stmt = $conn->query($sql); 
+
+    echo "Data inserted successfully";
+    $sql = "SELECT * FROM test_table";
+    $stmt = $conn->query($sql);
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo $row['name'] . "<br>";
+
+    echo "Data selected successfully";
 }
+} 
+?>
+
+<form method="post">
+    <input type="submit" name="button1" class="button" value="Insert value in db" />
+</form>
+
+<?php
+
+
 
 $conn = null;
 ?>

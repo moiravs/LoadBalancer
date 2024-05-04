@@ -8,6 +8,7 @@ services:
             MYSQL_DATABASE: myDBPDO
             MYSQL_USER: devuser
             MYSQL_PASSWORD: devpass
+        command: --server-id=1 --log-bin=mysql-bin --binlog-do-db=myDBPDO
         ports:
             - "9906:3306"
         volumes:
@@ -15,6 +16,16 @@ services:
 
         networks:
           - local
+
+    db_s:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+        command: --server-id=2 --relay-log-index=relay-log.index --relay-log=relay-log --master-host=db_m --master-user=devuser --master-password=devpass --master-connect-retry=60 --replicate-do-db=myDBPDO
+        depends_on:
+        - db
+        networks:
+        - local
 
     loadbalancer:
         image: nginx:latest
@@ -68,7 +79,7 @@ services:
             - php-fpm2
 
         depends_on:
-             - db    
+             - db_s   
         stdin_open: true
         tty: true
 
