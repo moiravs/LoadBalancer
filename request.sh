@@ -1,4 +1,5 @@
+sudo service docker start
 sudo docker-compose down
-sudo docker-compose up --build
-
-#for i in {1..10}; do curl localhost:8082; done
+sudo docker-compose up --build -d
+echo "Processes running\n"
+sudo docker ps
