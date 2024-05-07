@@ -28,6 +28,8 @@ services:
         command: --server-id=2 --relay-log-index=relay-log.index --relay-log=relay-log --master-host=db_m --master-user=devuser --master-password=devpass --master-connect-retry=60 --replicate-do-db=myDBPDO
         depends_on:
         - db
+        ports:
+            - "9907:3306"
         networks:
             app_net:
                 ipv4_address: 172.20.1.2
