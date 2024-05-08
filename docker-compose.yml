@@ -1,31 +1,31 @@
 version: "3.9"
 
 services:
-    db:
-        image: mysql:latest
-        environment:
+    db: # primary database
+        image: mysql:latest 
+        environment: # connect to the database
             MYSQL_ROOT_PASSWORD: password
             MYSQL_DATABASE: myDBPDO
             MYSQL_USER: devuser
             MYSQL_PASSWORD: devpass
-        command: --server-id=1 --log-bin=mysql-bin --binlog-do-db=myDBPDO
+        command: --server-id=1 --log-bin=mysql-bin --binlog-do-db=myDBPDO  
         ports:
             - "9906:3306"
-        volumes:
+        volumes: # copy the init.sql file to the container
             - ./src/database:/docker-entrypoint-initdb.d    
 
         networks:
             app_net:
                 ipv4_address: 172.20.1.3
 
-    db_s:
+    db_s: # replica of the database
         image: mysql:latest
         environment:
             MYSQL_ROOT_PASSWORD: password
             MYSQL_DATABASE: myDBPDO
             MYSQL_USER: devuser
             MYSQL_PASSWORD: devpass
-        command: --server-id=2 --relay-log-index=relay-log.index --relay-log=relay-log --master-host=db_m --master-user=devuser --master-password=devpass --master-connect-retry=60 --replicate-do-db=myDBPDO
+        command: --server-id=2 --relay-log-index=relay-log.index --relay-log=relay-log --master-host=db_m --master-user=devuser --master-password=devpass --master-connect-retry=60 --replicate-do-db=myDBPDO # connect to the primary database
         depends_on:
         - db
         ports:
@@ -131,9 +131,9 @@ services:
 
 
 
-networks:
+networks: # create a network
   app_net:
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.20.0.0/16 
   
